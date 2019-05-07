@@ -13,11 +13,15 @@ public class stats : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (gameObject.name == "finalscore")
+        {
+            GetComponent<TextMesh>().text = "SCORE: " + (gamemaster.scoreNow - (300 - gamemaster.timeNow));
+        }
         if (gameObject.name == "score")
         {
             GetComponent<TextMesh>().text = "SCORE: " + gamemaster.scoreNow;
         }
-        if(gameObject.name == "time")
+        if (gameObject.name == "time")
         {
             GetComponent<TextMesh>().text = "TIME LEFT : " + (300-gamemaster.timeNow);
         }

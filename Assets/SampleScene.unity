@@ -47901,3 +47901,19 @@ MonoBehaviour:
   girl2: {fileID: 839770039200575727, guid: 32e12a12573af40dda7a746ea0b66295, type: 3}
   garbage: {fileID: 7243238473016873922, guid: 17068af184efe432bb0c0b5a0a98a1df, type: 3}
   car: {fileID: 554020359967113060, guid: a5c1f07ba78e04fa9ab2324a471434d5, type: 3}
+  tree1: {fileID: 413218, guid: 826b6a0b570e8460990010fa615b5a2a, type: 3}
+  tree2: {fileID: 405256, guid: c44bd9bdc114d4a60932c0087d9d1732, type: 3}
+--- !u!114 &8449246963971235672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8449246963971235670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79ea08933acdf429a8b40ccf4cf3a1a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startgame: 13
+  quitt: 27

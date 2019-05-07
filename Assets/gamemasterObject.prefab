@@ -43,9 +43,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b54a1d8c590214084b523a3c87fd421f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zScenePos: 10
   Block: {fileID: 0}
   man1: {fileID: 0}
   girl1: {fileID: 0}
   oldman: {fileID: 0}
-  randNo1: 0
+  man2: {fileID: 0}
+  girl2: {fileID: 0}
+  garbage: {fileID: 0}
+  car: {fileID: 0}
+  tree1: {fileID: 413218, guid: 826b6a0b570e8460990010fa615b5a2a, type: 3}
+  tree2: {fileID: 405256, guid: c44bd9bdc114d4a60932c0087d9d1732, type: 3}

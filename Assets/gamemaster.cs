@@ -26,6 +26,8 @@ public class gamemaster : MonoBehaviour
     public Transform girl2;
     public Transform garbage;
     public Transform car;
+    public Transform tree1;
+    public Transform tree2;
 
     public static int randNo1;
    
@@ -131,6 +133,14 @@ public class gamemaster : MonoBehaviour
             if (randNo1 == 18)
             {
                 Instantiate(car, new Vector3(-5, 0.5f, zScenePos), car.rotation);
+            }
+            if (randNo1 == 19)
+            {
+                Instantiate(tree1, new Vector3(-7, 0.5f, zScenePos), tree1.rotation);
+            }
+            if (randNo1 == 20)
+            {
+                Instantiate(tree2, new Vector3(-7, 0.5f, zScenePos), tree2.rotation);
             }
 
 

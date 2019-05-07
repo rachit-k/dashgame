@@ -3,7 +3,18 @@ guid: b54a1d8c590214084b523a3c87fd421f
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - Block: {instanceID: 0}
+  - man1: {instanceID: 0}
+  - girl1: {instanceID: 0}
+  - oldman: {instanceID: 0}
+  - man2: {instanceID: 0}
+  - girl2: {instanceID: 0}
+  - garbage: {fileID: 7243238473016873922, guid: 17068af184efe432bb0c0b5a0a98a1df,
+      type: 3}
+  - car: {fileID: 554020359967113060, guid: a5c1f07ba78e04fa9ab2324a471434d5, type: 3}
+  - tree1: {fileID: 413218, guid: 826b6a0b570e8460990010fa615b5a2a, type: 3}
+  - tree2: {fileID: 405256, guid: c44bd9bdc114d4a60932c0087d9d1732, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

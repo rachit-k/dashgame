@@ -62,11 +62,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\butttons.cs" />
     <Compile Include="Assets\gamemaster.cs" />
     <Compile Include="Assets\movecam.cs" />
     <Compile Include="Assets\movemain.cs" />
     <Compile Include="Assets\movingeffects1.cs" />
-    <Compile Include="Assets\rotationeffects.cs" />
     <Compile Include="Assets\stats.cs" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />

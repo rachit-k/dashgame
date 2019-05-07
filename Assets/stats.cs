@@ -15,21 +15,25 @@ public class stats : MonoBehaviour
     {
         if (gameObject.name == "score")
         {
-            GetComponent<TextMesh>().text = "Score: " + gamemaster.scoreNow;
+            GetComponent<TextMesh>().text = "SCORE: " + gamemaster.scoreNow;
         }
         if(gameObject.name == "time")
         {
-            GetComponent<TextMesh>().text = "Time: " + gamemaster.timeNow;
+            GetComponent<TextMesh>().text = "TIME LEFT : " + (300-gamemaster.timeNow);
         }
-        if(gameObject.name=="runstatus")
+        if (gameObject.name == "distleft")
+        {
+            GetComponent<TextMesh>().text = "DIST LEFT: " + gamemaster.distleftNow;
+        }
+        if (gameObject.name=="runstatus")
         {
             if (gamemaster.levelStat == 'p')
             {
-                GetComponent<TextMesh>().text = "pass";
+                GetComponent<TextMesh>().text = "CONGRATS, YOU PASSED";
             }
             else
             {
-                GetComponent<TextMesh>().text = "fail";
+                GetComponent<TextMesh>().text = "AWW, BETTER LUCK NEXT TIME";
             }
         }
     }

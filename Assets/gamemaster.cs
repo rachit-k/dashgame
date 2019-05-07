@@ -10,12 +10,13 @@ public class gamemaster : MonoBehaviour
 
     public static int scoreNow = 0;
     public static float timeNow = 0;
+    public static float distleftNow = 250;
 
     public static float waitTime = 0;
 
     public static char levelStat = ' ';
 
-    public float zScenePos =0;
+    public static float zScenePos =0;
 
     public Transform Block;
     public Transform man1;
@@ -26,7 +27,7 @@ public class gamemaster : MonoBehaviour
     public Transform garbage;
     public Transform car;
 
-    public int randNo1;
+    public static int randNo1;
    
 
     // Start is called before the first frame update
@@ -43,7 +44,7 @@ public class gamemaster : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       if(zScenePos < 150)
+       if(zScenePos < 500)
         {
             Instantiate(Block, new Vector3(0, 0, zScenePos), Block.rotation);
             zScenePos = zScenePos + 2;
@@ -145,7 +146,7 @@ public class gamemaster : MonoBehaviour
         }
         if(waitTime>1)
         {
-            SceneManager.LoadScene("mainLevel");
+            SceneManager.LoadScene("mainlevel");
         }
     }
 }

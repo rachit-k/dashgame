@@ -11,6 +11,7 @@ public class movemain : MonoBehaviour
     public float xVel = 0;
     public int laneNum = 0;
     public char controlLocked = 'n';
+    public static Vector3 lastPosition;
 
     public Transform endgoodObj;
     public Transform endbadObj;
@@ -18,17 +19,21 @@ public class movemain : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        lastPosition = transform.position;
     }
+
 
     // Update is called once per frame
     void Update()
     {
         GetComponent<Rigidbody>().velocity = new Vector3(xVel, gamemaster.yVel, gamemaster.zVel);
+        GetComponent<Rigidbody>().freezeRotation = true;
+        gamemaster.distleftNow -= Vector3.Distance(transform.position, lastPosition);
+        lastPosition = transform.position;
 
-        //gamemaster.timeNow = gamemaster.timeNow + Time.deltaTime; //we instead created a gamemaster object
+    //gamemaster.timeNow = gamemaster.timeNow + Time.deltaTime; //we instead created a gamemaster object
 
-        if ((Input.GetKeyDown(moveL)) && (laneNum>-1) &&(controlLocked == 'n')) //getkey will continuously detect it
+    if ((Input.GetKeyDown(moveL)) && (laneNum>-1) &&(controlLocked == 'n')) //getkey will continuously detect it
         {
             xVel = -2;
             StartCoroutine(stopSlide());
@@ -42,10 +47,15 @@ public class movemain : MonoBehaviour
             laneNum = laneNum + 1;
             controlLocked = 'y';
         }
-        if(gamemaster.timeNow > 600)         //time in sec
+        if(gamemaster.timeNow > 300)         //time in sec
         {
             Destroy(gameObject);
             gamemaster.levelStat = 'f';
+        }
+        if(gamemaster.distleftNow<0)
+        {
+            gamemaster.levelStat = 'p';
+            SceneManager.LoadScene("mainlevel");
         }
 
     }
@@ -54,19 +64,20 @@ public class movemain : MonoBehaviour
     {
         if(obs.gameObject.tag=="bad")
         {
-            Destroy(obs.gameObject);
-            gamemaster.timeNow = gamemaster.timeNow + 10;
-            Instantiate(endbadObj, transform.position,endbadObj.rotation);
             StartCoroutine(wait());
+            Destroy(obs.gameObject);
+            gamemaster.timeNow = gamemaster.timeNow + 5;
+            Instantiate(endbadObj, transform.position,endbadObj.rotation);
+
             //gamemaster.levelStat = 'f';
         }
         if (obs.gameObject.tag == "good")
         {
+            StartCoroutine(wait());
             Destroy(obs.gameObject);
-            gamemaster.timeNow = gamemaster.timeNow + 20;
+            gamemaster.timeNow = gamemaster.timeNow + 10;
             gamemaster.scoreNow = gamemaster.scoreNow + 10;
             Instantiate(endgoodObj, transform.position, endgoodObj.rotation);
-            StartCoroutine(wait());
             //powerup
         }
     }
@@ -81,11 +92,11 @@ public class movemain : MonoBehaviour
         //{
         //    gamemaster.yVel = 0;
         //}
-        if (other.gameObject.name == "exitgate")
-        {
-            gamemaster.levelStat = 'p';
-            SceneManager.LoadScene("mainLevel");
-        }
+        //if (other.gameObject.name == "exitgate")
+        //{
+        //    gamemaster.levelStat = 'p';
+        //    SceneManager.LoadScene("mainLevel");
+        //}
         //if (other.gameObject.name == "coin"|| (other.gameObject.name == "coin(Clone)"))    //we can do this in collision too if we don't set it to trigger   //for the clone, only need when "name" is req, when comparing tag, it's fine
         //{
         //    Destroy(other.gameObject);
@@ -102,6 +113,9 @@ public class movemain : MonoBehaviour
 
     IEnumerator wait()
     {
-        yield return new WaitForSeconds(1.0f);
+        gamemaster.zVel = 0;
+        yield return new WaitForSeconds(.5f);
+        gamemaster.zVel = 4;
+
     }
 }
